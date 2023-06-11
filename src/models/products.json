@@ -1,104 +1,5 @@
 [
 	{
-		"title": "Manzana",
-		"price": 6705,
-		"category": "Frutas",
-		"description": "Soy una fruta.",
-		"code": 10,
-		"stock": 100,
-		"thumbnail": [],
-		"status": true,
-		"id": 1
-	},
-	{
-		"title": "Banana",
-		"price": 6705,
-		"category": "Frutas",
-		"description": "Soy una fruta.",
-		"code": 11,
-		"stock": 100,
-		"thumbnail": [],
-		"status": true,
-		"id": 2
-	},
-	{
-		"title": "Uvas",
-		"price": 6705,
-		"category": "Frutas",
-		"description": "Soy una fruta.",
-		"code": 20,
-		"stock": 100,
-		"thumbnail": [],
-		"status": true,
-		"id": 3
-	},
-	{
-		"title": "Naranja",
-		"price": 6705,
-		"category": "Frutas",
-		"description": "Soy una fruta.",
-		"code": 234,
-		"stock": 100,
-		"thumbnail": [],
-		"status": true,
-		"id": 4
-	},
-	{
-		"title": "Peras",
-		"price": 6705,
-		"category": "Frutas",
-		"description": "Soy una fruta.",
-		"code": 2342,
-		"stock": 100,
-		"thumbnail": [],
-		"status": true,
-		"id": 5
-	},
-	{
-		"title": "Sandia",
-		"price": 6705,
-		"category": "Frutas",
-		"description": "Soy una fruta.",
-		"code": 23421,
-		"stock": 100,
-		"thumbnail": [],
-		"status": true,
-		"id": 6
-	},
-	{
-		"title": "Papaya",
-		"price": 6705,
-		"category": "Frutas",
-		"description": "Soy una fruta.",
-		"code": 23,
-		"stock": 100,
-		"thumbnail": [],
-		"status": true,
-		"id": 7
-	},
-	{
-		"title": "Sambayon",
-		"price": 6705,
-		"category": "Frutas",
-		"description": "Soy una fruta.",
-		"code": 21,
-		"stock": 100,
-		"thumbnail": [],
-		"status": true,
-		"id": 8
-	},
-	{
-		"title": "Tomate",
-		"price": 6705,
-		"category": "Frutas",
-		"description": "Soy una fruta.",
-		"code": 12,
-		"stock": 100,
-		"thumbnail": [],
-		"status": true,
-		"id": 9
-	},
-	{
 		"title": "Kiwi",
 		"price": 6705,
 		"category": "Frutas",
@@ -107,6 +8,6 @@
 		"stock": 100,
 		"thumbnail": [],
 		"status": true,
-		"id": 10
+		"id": 4
 	}
 ]

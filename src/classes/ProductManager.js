@@ -55,7 +55,8 @@ export default class ProductManager{
         let products = await this.readProducts()
         let productWithIdNoIncluded = products.filter(prod => prod.id != id)
         // solo puse return en la linea 58
-        return await this.writeProducts(productWithIdNoIncluded)
+        await this.writeProducts(productWithIdNoIncluded)
+        return productWithIdNoIncluded
         // return `Producto con id: ${id} eliminado`
     }
 }

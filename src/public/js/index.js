@@ -25,7 +25,7 @@ document.getElementById('createProduct').addEventListener('click', () => {
         .then(result => result.json())
         .then(result => {
             if(result.status == 'error') throw new Error(result.error)
-            else socket.emit('productList', result.products)
+            else socket.emit('productList', result.body)
             //podemos hacer un toastify
             alert('Producto creado ha sido añadido.')
             document.getElementById('inputTitle').value = ''
@@ -40,7 +40,7 @@ document.getElementById('createProduct').addEventListener('click', () => {
 })
 
 deleteProduct = (id) => {
-    fetch(`/api/products(${id})`, {
+    fetch(`/api/products/${id}`, {
         method: 'delete'
     })
         .then(result => result.json())
@@ -53,23 +53,27 @@ deleteProduct = (id) => {
 }
 
 socket.on('updatedProducts', data => {
-    for (product in data){
-        `
-        <div class="containerProductWithId">
-            <button class="deleteButtonProduct">Eliminar</button>
-            <p class="idProducto">${product.id}</p>
-            <div class="containerProductInfo">
-                <h1>${product.title}</h1>
-                <p class="estiloTexto"><b>Descripción:</b> ${product.description}</p>
-                <p class="estiloTexto"><b>Código:</b> ${product.code}</p>
-                <p class="estiloTexto"><b>Stock:</b> ${product.stock}</p>
-                <p class="estiloTexto"><b>Precio:</b> ${product.price}</p>
-                <p class="estiloTexto"><b>Categoria:</b> ${product.category}</p>
-            </div>
-        </div>
-        `;
-    } 
-})
+    if (data !== null) {
+        containerProducts.innerHTML = ''; // Limpiar los productos existentes
+        data.forEach(product => {
+            const productHtml = `
+                <div class="containerProductWithId" id="product-${product.id}">
+                    <button class="deleteButtonProduct">Eliminar</button>
+                    <p class="idProducto">${product.id}</p>
+                    <div class="containerProductInfo">
+                        <h1>${product.title}</h1>
+                        <p class="estiloTexto"><b>Descripción:</b> ${product.description}</p>
+                        <p class="estiloTexto"><b>Código:</b> ${product.code}</p>
+                        <p class="estiloTexto"><b>Stock:</b> ${product.stock}</p>
+                        <p class="estiloTexto"><b>Precio:</b> ${product.price}</p>
+                        <p class="estiloTexto"><b>Categoria:</b> ${product.category}</p>
+                    </div>
+                </div>
+            `;
+            containerProducts.innerHTML += productHtml; // Agregar el producto al contenedor
+        });
+    }
+});
 
 // Cuando elimino un producto por ThunderClient, me sale undefined.
 // El boton eliminar no funciona, nisiquiera elimina.
