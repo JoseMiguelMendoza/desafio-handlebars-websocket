@@ -1,0 +1,33 @@
+<h2 class="mainTitle">Productos en tiempo real</h2>
+<div class="formAndProductsContainer">
+    <form class="formContainer" action="">
+        <h3 class="tituloForm">Ingrese un producto</h3>
+        <label class="formLabel" for="title">Título: <input type="text" name="title" id="inputTitle"></label>
+        <label class="formLabel" for="description">Descripción: <input type="text" name="description" id="inputDescription"></label>
+        <label class="formLabel" for="price">Precio: <input type="number" name="price" id="inputPrice"></label>
+        <label class="formLabel" for="code">Código: <input type="number" name="code" id="inputCode"></label>
+        <label class="formLabel" for="stock">Stock: <input type="number" name="stock" id="inputStock"></label>
+        <label class="formLabel" for="category">Categoría: <input type="text" name="category" id="inputCategory"></label>
+        <button class="buttonForm" id="createProduct">Crear Producto</button>
+    </form>
+
+    <div class="containerRealTimeProducts" id="realTimeProductsBox">
+        {{#each products}}
+        <div class="containerProductWithId">
+            <button class="deleteButtonProduct">Eliminar</button>
+            <p class="idProducto">{{this.id}}</p>
+            <div class="containerProductInfo">
+                <h1>{{this.title}}</h1>
+                <p class="estiloTexto"><b>Descripción:</b> {{this.description}}</p>
+                <p class="estiloTexto"><b>Código:</b> {{this.code}}</p>
+                <p class="estiloTexto"><b>Stock:</b> {{this.stock}}</p>
+                <p class="estiloTexto"><b>Precio:</b> {{this.price}}</p>
+                <p class="estiloTexto"><b>Categoria:</b> {{this.category}}</p>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/index.js"></script>
