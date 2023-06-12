@@ -75,8 +75,8 @@ router.get('/:id', async(req, res) => {
 router.post('/', async(req, res) => {
     let newProduct = req.body
     if(await validateProduct(res, newProduct)){
-        await productManager.addProducts(newProduct)
         req.io.emit('updatedProducts', await readProducts)
+        await productManager.addProducts(newProduct)
         return res.status(200).json({ message: 'Producto Agregado'})
     }
 })

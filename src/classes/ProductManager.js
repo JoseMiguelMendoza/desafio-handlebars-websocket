@@ -32,8 +32,10 @@ export default class ProductManager{
     addProducts = async(product) => {
         let productsOld = await this.readProducts()
         product.id = this.#generateId(productsOld)
+        product.status = true
         let allProducts = [...productsOld, product]
-        return await this.writeProducts(allProducts)
+        await this.writeProducts(allProducts)
+        return allProducts
     }
 
     getProductById = async(id) => {
@@ -54,9 +56,7 @@ export default class ProductManager{
     deleteProducts = async(id) => {
         let products = await this.readProducts()
         let productWithIdNoIncluded = products.filter(prod => prod.id != id)
-        // solo puse return en la linea 58
         await this.writeProducts(productWithIdNoIncluded)
         return productWithIdNoIncluded
-        // return `Producto con id: ${id} eliminado`
     }
 }

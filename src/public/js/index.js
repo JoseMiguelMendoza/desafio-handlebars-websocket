@@ -1,13 +1,14 @@
 const socket = io()
-const containerProducts = document.getElementById('realTimeProductsBox')
+let containerProducts = document.getElementById('realTimeProductsBox')
 
-document.getElementById('createProduct').addEventListener('click', () => {
+document.getElementById('createProduct').addEventListener('click', (e) => {
+    e.preventDefault()
     const body = {
         title: document.getElementById('inputTitle').value,
         description: document.getElementById('inputDescription').value,
-        price: document.getElementById('inputPrice').value,
-        code: document.getElementById('inputCode').value,
-        stock: document.getElementById('inputStock').value,
+        price: Number(document.getElementById('inputPrice').value),
+        code: Number(document.getElementById('inputCode').value),
+        stock: Number(document.getElementById('inputStock').value),
         category: document.getElementById('inputCategory').value
     }
     fetch('/api/products', {
@@ -25,7 +26,10 @@ document.getElementById('createProduct').addEventListener('click', () => {
         .then(result => result.json())
         .then(result => {
             if(result.status == 'error') throw new Error(result.error)
-            else socket.emit('productList', result.body)
+            else {
+                console.log(body)
+                socket.emit('productList', body)
+            }
             //podemos hacer un toastify
             alert('Producto creado ha sido añadido.')
             document.getElementById('inputTitle').value = ''
@@ -54,10 +58,10 @@ deleteProduct = (id) => {
 
 socket.on('updatedProducts', data => {
     if (data !== null) {
-        containerProducts.innerHTML = ''; // Limpiar los productos existentes
+        containerProducts.innerHTML = '';
         data.forEach(product => {
-            const productHtml = `
-                <div class="containerProductWithId" id="product-${product.id}">
+            let productHtml = `
+                <div class="containerProductWithId" id="${product.id}">
                     <button class="deleteButtonProduct">Eliminar</button>
                     <p class="idProducto">${product.id}</p>
                     <div class="containerProductInfo">
@@ -70,11 +74,9 @@ socket.on('updatedProducts', data => {
                     </div>
                 </div>
             `;
-            containerProducts.innerHTML += productHtml; // Agregar el producto al contenedor
+            containerProducts.innerHTML += productHtml;
         });
     }
 });
 
-// Cuando elimino un producto por ThunderClient, me sale undefined.
-// El boton eliminar no funciona, nisiquiera elimina.
-// Cuando creo un producto por la pagina, me aparece el mensaje de que el producto se ha creado, pero no hace nada. Nisiquiera se crea en la DB o en la pagina.
+// El boton eliminar no funciona al apretar por segunda vez, nisiquiera elimina.

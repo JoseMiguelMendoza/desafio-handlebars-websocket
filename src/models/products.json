@@ -1,13 +1,107 @@
 [
 	{
-		"title": "Kiwi",
+		"title": "Blueberries",
 		"price": 6705,
-		"category": "Frutas",
-		"description": "Soy una fruta.",
-		"code": 15,
+		"category": "Bayas",
+		"description": "Soy una baya.",
+		"code": 171,
 		"stock": 100,
 		"thumbnail": [],
 		"status": true,
-		"id": 4
+		"id": 7
+	},
+	{
+		"title": "Naranjas",
+		"price": 6705,
+		"category": "Frutas",
+		"description": "Soy una fruta.",
+		"code": 161,
+		"stock": 100,
+		"thumbnail": [],
+		"status": true,
+		"id": 8
+	},
+	{
+		"title": "Banana",
+		"price": 6705,
+		"category": "Frutas",
+		"description": "Soy una fruta.",
+		"code": 151,
+		"stock": 100,
+		"thumbnail": [],
+		"status": true,
+		"id": 9
+	},
+	{
+		"title": "Frutilla",
+		"price": 6705,
+		"category": "Frutas",
+		"description": "Soy una fruta.",
+		"code": 181,
+		"stock": 100,
+		"thumbnail": [],
+		"status": true,
+		"id": 10
+	},
+	{
+		"title": "Uvas",
+		"price": 6705,
+		"category": "Frutas",
+		"description": "Soy una fruta.",
+		"code": 131,
+		"stock": 100,
+		"thumbnail": [],
+		"status": true,
+		"id": 11
+	},
+	{
+		"title": "Hola",
+		"description": "Hermano Mayor",
+		"price": 1500,
+		"code": 6799,
+		"stock": 1,
+		"category": "Familiar",
+		"id": 12,
+		"status": true
+	},
+	{
+		"title": "Hermano",
+		"description": "Hermano Mayor",
+		"price": 21,
+		"code": 6799,
+		"stock": 1,
+		"category": "Familiar",
+		"id": 13,
+		"status": true
+	},
+	{
+		"title": "Jazmin",
+		"description": "Es mi hermana.",
+		"price": 10,
+		"code": 1238,
+		"stock": 1,
+		"category": "Familiar",
+		"id": 14,
+		"status": true
+	},
+	{
+		"title": "Miguel",
+		"description": "Es mi padre.",
+		"price": 1000000,
+		"code": 4839,
+		"stock": 1,
+		"category": "Familiar",
+		"id": 15,
+		"status": true
+	},
+	{
+		"title": "Producto Nuevo",
+		"description": "Producto Nuevo",
+		"price": 1500,
+		"code": 190,
+		"stock": 122,
+		"category": "Novedad",
+		"id": 16,
+		"status": true
 	}
 ]

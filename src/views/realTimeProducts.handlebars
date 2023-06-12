@@ -10,12 +10,11 @@
         <label class="formLabel" for="category">Categoría: <input type="text" name="category" id="inputCategory"></label>
         <button class="buttonForm" id="createProduct" >Crear Producto</button>
     </form>
-
-{{!-- en el div containerRealTimeProducts va  --}}
+    
     <div class="containerRealTimeProducts" id="realTimeProductsBox">
         {{#each products}}
         <div class="containerProductWithId">
-            <button class="deleteButtonProduct" onclick="deleteProduct('{{this.id}}')">Eliminar</button>
+            <button class="deleteButtonProduct" onclick="deleteProduct({{this.id}})">Eliminar</button>
             <p class="idProducto">{{this.id}}</p>
             <div class="containerProductInfo">
                 <h1>{{this.title}}</h1>
