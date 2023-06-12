@@ -33,6 +33,7 @@ export default class ProductManager{
         let productsOld = await this.readProducts()
         product.id = this.#generateId(productsOld)
         product.status = true
+        if(!product.thumbnail) product.thumbnail = []
         let allProducts = [...productsOld, product]
         await this.writeProducts(allProducts)
         return allProducts

@@ -75,8 +75,8 @@ router.get('/:id', async(req, res) => {
 router.post('/', async(req, res) => {
     let newProduct = req.body
     if(await validateProduct(res, newProduct)){
-        req.io.emit('updatedProducts', await readProducts)
-        await productManager.addProducts(newProduct)
+        const productoAgregado = await productManager.addProducts(newProduct)
+        req.io.emit('updatedProducts', productoAgregado)
         return res.status(200).json({ message: 'Producto Agregado'})
     }
 })
@@ -88,7 +88,7 @@ router.put('/:id', async(req, res) => {
     let productUpdated = await productManager.updateProducts(id, updateProduct)
     if(!productUpdated) return res.status(404).json({ message: 'Producto No Encontrado.'})
     if(await validateProduct(res, updateProduct)){
-        req.io.emit('updatedProducts', await readProducts)
+        req.io.emit('updatedProducts', productUpdated)
         return res.status(200).json({ message: 'Producto Actualizado' })
     }
 })
@@ -99,7 +99,6 @@ router.delete('/:id', async(req, res) => {
     let products = await readProducts
     let productExists = products.some(prod => prod.id == id)
     if(!productExists) return res.status(404).json({ message: `Producto a eliminar con id: ${id} no existe.`})
-    // aqui hemos cambiado. productsUpdated ahora me devuelve el array de objetos sin el id que seleccione.
     let productsUpdated = await productManager.deleteProducts(id)
     req.io.emit('updatedProducts', productsUpdated)
     return res.status(200).json({ message: `el producto con id: ${id} ha sido eliminado.` })

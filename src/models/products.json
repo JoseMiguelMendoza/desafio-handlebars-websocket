@@ -1,16 +1,5 @@
 [
 	{
-		"title": "Blueberries",
-		"price": 6705,
-		"category": "Bayas",
-		"description": "Soy una baya.",
-		"code": 171,
-		"stock": 100,
-		"thumbnail": [],
-		"status": true,
-		"id": 7
-	},
-	{
 		"title": "Naranjas",
 		"price": 6705,
 		"category": "Frutas",
@@ -95,13 +84,38 @@
 		"status": true
 	},
 	{
-		"title": "Producto Nuevo",
-		"description": "Producto Nuevo",
-		"price": 1500,
-		"code": 190,
-		"stock": 122,
-		"category": "Novedad",
-		"id": 16,
-		"status": true
+		"title": "Prueba",
+		"price": 6705,
+		"category": "Prueba",
+		"description": "Soy una prueba.",
+		"code": 1300,
+		"stock": 100,
+		"thumbnail": [
+			"https://www.mipaginafalsa.com"
+		],
+		"status": true,
+		"id": 16
+	},
+	{
+		"title": "Monica",
+		"description": "Es mi madre",
+		"price": 1284912498,
+		"code": 43643,
+		"stock": 1,
+		"category": "Familiar",
+		"id": 17,
+		"status": true,
+		"thumbnail": []
+	},
+	{
+		"title": "Joel",
+		"description": "Es mi tio",
+		"price": 1235235,
+		"code": 3464343,
+		"stock": 1,
+		"category": "Familiar",
+		"id": 18,
+		"status": true,
+		"thumbnail": []
 	}
 ]
