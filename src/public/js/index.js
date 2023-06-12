@@ -27,10 +27,8 @@ document.getElementById('createProduct').addEventListener('click', (e) => {
         .then(result => {
             if(result.status == 'error') throw new Error(result.error)
             else {
-                console.log(body)
                 socket.emit('productList', body)
             }
-            //podemos hacer un toastify
             alert('Producto creado ha sido añadido.')
             document.getElementById('inputTitle').value = ''
             document.getElementById('inputDescription').value = ''
@@ -39,7 +37,6 @@ document.getElementById('createProduct').addEventListener('click', (e) => {
             document.getElementById('inputStock').value = ''
             document.getElementById('inputCategory').value = ''
         })
-        //podemos hacer un toastify
         .catch(err => alert(`Ocurrio un error : (\n${err}`))
 })
 
@@ -50,7 +47,6 @@ deleteProduct = (id) => {
         .then(result => result.json())
         .then(result => {
             if(result.status === 'error') throw new Error(result.error)
-            //podemos hacer un toastify
             alert('Producto Eliminado con exito.')
         })
         .catch(err => alert(`Ocurrio un error: (\n${err})`))
@@ -62,7 +58,7 @@ socket.on('updatedProducts', data => {
         data.forEach(product => {
             let productHtml = `
                 <div class="containerProductWithId" id="${product.id}">
-                    <button class="deleteButtonProduct">Eliminar</button>
+                    <button class="deleteButtonProduct" onclick="deleteProduct('${product.id}')">Eliminar</button>
                     <p class="idProducto">${product.id}</p>
                     <div class="containerProductInfo">
                         <h1>${product.title}</h1>
@@ -78,5 +74,3 @@ socket.on('updatedProducts', data => {
         });
     }
 });
-
-// El boton eliminar no funciona al apretar por segunda vez, nisiquiera elimina.

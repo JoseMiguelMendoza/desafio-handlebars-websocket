@@ -33,9 +33,7 @@ app.use('/', viewsRouter)
 
 io.on("connection", socket => {
     console.log('A new client has connected to the Server')
-    // comentando para que luego al llegar a la parte de websocket, pueda usarlo.
     socket.on('productList',async(data) => {
-        // me llega body, el objeto que hice por formulario
         let products = await productManager.addProducts(data)
         io.emit('updatedProducts', products)
     })

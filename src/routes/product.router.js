@@ -88,7 +88,7 @@ router.put('/:id', async(req, res) => {
     let productUpdated = await productManager.updateProducts(id, updateProduct)
     if(!productUpdated) return res.status(404).json({ message: 'Producto No Encontrado.'})
     if(await validateProduct(res, updateProduct)){
-        req.io.emit('updatedProducts', productUpdated)
+        req.io.emit('updatedProducts', await readProducts)
         return res.status(200).json({ message: 'Producto Actualizado' })
     }
 })
