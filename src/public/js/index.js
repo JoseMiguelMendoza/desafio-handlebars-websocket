@@ -11,18 +11,7 @@ document.getElementById('createProduct').addEventListener('click', (e) => {
         stock: Number(document.getElementById('inputStock').value),
         category: document.getElementById('inputCategory').value
     }
-    fetch('/api/products', {
-        method: 'post',
-        body: JSON.stringify(body),
-        headers: {
-            'Content-type': 'application/json'
-        },
-    })
-        .then(result => result.json())
-        .then(result => {
-            if(result.status == 'error') throw new Error(result.error)
-        })
-        .then(() => fetch('/api/products'))
+    fetch('/api/products')
         .then(result => result.json())
         .then(result => {
             if(result.status == 'error') throw new Error(result.error)
